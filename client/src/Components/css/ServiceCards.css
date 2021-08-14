@@ -1,0 +1,54 @@
+.customCards {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex: 0 0 300px;
+    height: 200px;
+    background-color: #0F2735;
+    border-radius: 16px;
+    box-sizing: border-box;
+    margin: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-left: 20px;
+}
+
+.col1 {
+    flex: 1;
+    flex-direction: column;
+    color: white;
+    align-items: right;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+    /* padding: 0px 20px; */
+}
+
+.col1>h3 {
+    margin: 0;
+    text-decoration: underline;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.col1>h1 {
+    margin: 0;
+    font-size: 33px;
+    font-weight: 500;
+    color: #5D5FEF;
+}
+
+.col2 {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.col2>div>h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}

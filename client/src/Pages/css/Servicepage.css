@@ -1,0 +1,9 @@
+
+.serviceCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    align-items: center;
+    margin-right: 30px;
+    margin-left: 10px;
+}
