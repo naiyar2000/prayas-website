@@ -12,8 +12,8 @@ const Servicepage = () => {
         const fetchData = async () => {
             try {
                 const parlourList = await app.firestore().collection("ParlourServices").get();
-                const salonList = await app.firestore().collection("ParlourServices").get();
-                const doctorList = await app.firestore().collection("ParlourServices").get();
+                // const salonList = await app.firestore().collection("ParlourServices").get();
+                // const doctorList = await app.firestore().collection("ParlourServices").get();
                 setServiceList(parlourList.docs);
                 console.log(parlourList.docs);
             } catch (error) {
@@ -45,9 +45,9 @@ const Servicepage = () => {
                         </div>
                     </div>
                     <div className='serviceCards'>
-                       <ServiceCards registered="08" newRequest="03" type="Salon"/>
-                       <ServiceCards registered="07" newRequest="02" type="Parlour"/>
-                       <ServiceCards registered="06" newRequest="02" type="Doctor"/>
+                       <ServiceCards registered="08" newRequest="03" type="Salon" firstTite="Registered" secondTitle="New Requests"/>
+                       <ServiceCards registered="07" newRequest="02" type="Parlour"  firstTite="Registered" secondTitle="New Requests"/>
+                       <ServiceCards registered="06" newRequest="02" type="Doctor"  firstTite="Registered" secondTitle="New Requests"/>
                     </div>
                     <div className="serviceLists">
                         {

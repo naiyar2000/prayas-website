@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import logo from '../Assets/logo.png'
 import './css/NavigationSidebar.css'
 
-const NavigationSidebar = () => {
+const NavigationSidebar = ({isbooking=false}) => {
+
+    // const [selectedButton, setSelect] =useState(0);
     return (
-        <div
-        //  style={{height: '100vh',display: 'flex', flexDirection: 'column', backgroundColor:'red'}}
-         >
-           
+        <div>
             <nav className="navbar">
 
                 <div className="logo">
@@ -24,8 +23,15 @@ const NavigationSidebar = () => {
                     <li className="nav-item"><Link to="/booking" className="nav-link"><span className="link-text">Complaint and queries</span></Link></li>
                     <li className="nav-item"><Link to="/booking" className="nav-link"><span className="link-text">Add information</span></Link></li>
                 </ul>
+                {
+                    isbooking ? (
+                        <ul className="navbar-nav2">
+                            <li className="nav-item2"><Link to="/booking" className="nav-link2"><span className="link-text">New Input</span></Link></li>
+                            <li className="nav-item2"><Link to="/booking" className="nav-link2"><span className="link-text">Add agent</span></Link></li>
+                        </ul>
+                    ) : null
+                }  
             </nav>
-
         </div>
     )
 }
