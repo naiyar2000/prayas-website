@@ -60,7 +60,7 @@
   }
   
   .navbar .navbar-nav .nav-item {
-    width: 90%;
+    width: 100%;
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 0.6rem;
@@ -87,7 +87,9 @@
         -ms-flex-align: center;
             align-items: center;
     border: 0.3px solid #ffffff;
-    border-radius: 0.7em;
+    /* border-radius: 0.7em; */
+    border-left: none;
+    border-right: none;
     height: 2.8rem;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;

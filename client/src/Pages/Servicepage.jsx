@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavigationSidebar from '../Components/NavigationSidebar'
 import ServiceCards from '../Components/ServiceCards'
 import './css/Servicepage.css'
+import app from '../firebase'
 
 const Servicepage = () => {
+
+    const [serviceList, setServiceList] = useState([]);
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const parlourList = await app.firestore().collection("ParlourServices").get();
+                const salonList = await app.firestore().collection("ParlourServices").get();
+                const doctorList = await app.firestore().collection("ParlourServices").get();
+                setServiceList(parlourList.docs);
+                console.log(parlourList.docs);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, []);
+
     return (
         <>
             <div style={{display: 'flex'}}>
@@ -29,6 +48,15 @@ const Servicepage = () => {
                        <ServiceCards registered="08" newRequest="03" type="Salon"/>
                        <ServiceCards registered="07" newRequest="02" type="Parlour"/>
                        <ServiceCards registered="06" newRequest="02" type="Doctor"/>
+                    </div>
+                    <div className="serviceLists">
+                        {
+                            serviceList.map((res) => {
+                                return (
+                                    <ul>{res.data().location.name}</ul>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
