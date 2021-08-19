@@ -1,18 +1,13 @@
-.inputField {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.bookingCode {
+    color: #5D5FEF;
 }
 
-.inputField>div {
-    background-color: blue;
-    width: 2rem;
-    height: 2rem;
-    box-sizing: content-box;
+.secondHeading {
+    margin-left: 4rem;
+    padding-bottom: 0.5rem;
 }
 
-.text {
-    padding: 0;
-    margin: 0;
-    height: 2rem;
+.bookingCode {
+    margin-left: 0.5rem;
 }
