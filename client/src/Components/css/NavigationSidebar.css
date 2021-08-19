@@ -1,25 +1,4 @@
-  
-/* .fa-bars {
-    position: fixed;
-    z-index: 3;
-    top: 10px;
-    left: 10px;
-    color: #ffffff;
-  }
-  
-  .fa-bars:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  }
-  
-  .fa-close {
-    color: #251170;
-  }
-  
-  .fa-close:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  } */
+
   
   .navbar {
     width: 360px;
@@ -74,6 +53,21 @@
     -webkit-padding-start: 2rem;
             padding-inline-start: 2rem;
   }
+  .navbar .navbar-nav2 .nav-item2 {
+    width: 70%;
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0.6rem;
+            margin-block-start: 0.6rem;
+    -webkit-margin-after: 0.6rem;
+            margin-block-end: 0.6rem;
+    -webkit-margin-start: 0rem;
+            margin-inline-start: 0rem;
+    -webkit-margin-end: 2rem;
+            margin-inline-end: 2rem;
+    -webkit-padding-start: 2rem;
+            padding-inline-start: 2rem;
+  }
   
   .navbar .navbar-nav .nav-item .nav-link {
     text-decoration: none;
@@ -94,17 +88,38 @@
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
+  .navbar .navbar-nav2 .nav-item2 .nav-link2 {
+    text-decoration: none;
+    color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 0.3px solid #ffffff;
+    border-radius: 2em;
+    height: 2.8rem;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
   
   .navbar .navbar-nav .nav-item .nav-link:hover {
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
   border: 2px solid #ffffff;
   }
-
+  .navbar .navbar-nav2 .nav-item2 .nav-link2:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  border: 2px solid #ffffff;
+  }
   
-.navbar .navbar-nav .nav-item .nav-link .link-text {
+  
+  .navbar .navbar-nav .nav-item .nav-link .link-text {
     font-weight: bold;
   }
-
-
+  
 
