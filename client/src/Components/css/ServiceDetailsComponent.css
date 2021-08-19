@@ -1,0 +1,43 @@
+.card {
+    width: 55%;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+}
+
+.photoColumn {
+    display: flex;
+    margin: 0rem 1rem;
+    align-items: center;
+}
+
+.serviceCode1>p {
+    margin: 0;
+    padding: 0;
+}
+
+.code,.category {
+    color: #5D5FEF;
+    border: 2px solid #5D5FEF;
+    padding: 2px 8px;
+    border-radius: 16px;
+}
+
+.photoRightSide {
+    flex: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imageFile {
+    flex: 1;
+}
+
+.heading {
+    background-color: #0F2735;
+    color: white;
+    margin-bottom: 1.5rem;
+    border-radius: 8px 8px 0px 0px;
+}
+
+
