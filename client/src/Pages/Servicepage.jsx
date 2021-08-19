@@ -33,12 +33,16 @@ const Servicepage = () => {
                     <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
                         <h1 style={{paddingLeft: '10px'}}>All Services</h1>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
-                            <p>
-                                From : 02/05/2000
-                            </p>
-                            <p>
-                                To : 02/05/2000
-                            </p>
+                            <div className="dateContainer">
+                                <p>
+                                    From : 02/05/2000   
+                                </p>
+                            </div>
+                            <div className="dateContainer">
+                                <p>
+                                    To : 02/05/2000
+                                </p>
+                            </div>
                             <p>
                                 This Week
                             </p>
@@ -67,7 +71,7 @@ const Servicepage = () => {
                         </div>
                     </div>
                     <div className="serviceSection">
-                        <div className="serviceCode">
+                        <div className="serviceCode" style={{backgroundColor: "white", color: "black"}}>
                             {
                                 serviceList.map((res) => {
                                     return (
@@ -76,7 +80,7 @@ const Servicepage = () => {
                                 })
                             }
                         </div>
-                        <div className="serviceName">
+                        <div className="serviceName" style={{backgroundColor: "white", color: "black"}}>
                             {
                                 serviceList.map((res) => {
                                     return (

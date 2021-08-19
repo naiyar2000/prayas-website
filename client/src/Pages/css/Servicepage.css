@@ -81,3 +81,12 @@
     margin-left: 5px;
     border-radius: 0 0 10% 0;
 }
+
+.dateContainer{
+    border-color: #5D5FEF;
+    color: #5D5FEF;
+    border-radius: 20%;
+    border: 10%;
+    margin-left: 5 px;
+    margin-right: 5 px;
+}
