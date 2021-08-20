@@ -12,7 +12,7 @@ const Bookingspage = () => {
                 <NavigationSidebar isbooking={true}/>
             </div>
             <div style={{flex: 4}}>
-                <div style={{color: 'white', backgroundColor: '#0F2735'}}>
+                <div style={{color: 'white', backgroundColor: '#0F2735', marginBottom: '2rem'}}>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'white'}}>
                         <h1 style={{paddingLeft: '1rem', marginLeft: '3rem'}}>Bookings</h1>
                         <SearchBar />
@@ -22,7 +22,7 @@ const Bookingspage = () => {
                         <h2>Booking :<span className="bookingCode">#20435</span></h2> 
                     </div>
                 </div>
-                <div className='serviceCards'>
+                <div className='serviceCards1'>
                     <ServiceDetailsComponent />
                 </div>
             </div>
