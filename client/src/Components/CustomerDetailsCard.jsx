@@ -13,19 +13,20 @@ const CustomerDetailsCard = () => {
                 </div>
                 <div className="photoRightSideCustomer">
                     <div>
-                        <div className="serviceCode1">
-                            <p>Service code : <span className="code">#2389046</span></p>
-                        </div>
-                        <div className="serviceCategory1">
-                            <p>Service category : <span className="category">Salon</span></p>
-                        </div>
-                        <div className="address1">
-                            <p>shop no. 125, sec 20 near mandir</p>
-                        </div>
+                        <p>Naiyar Imam</p>
+                        <p>+91 634353343</p>
+                        <p>abc_@gmail.com</p>
                     </div>
                     <div>
-                        <p>+91 608080444</p>
-                        <p>abc_@gmail.com</p>
+                        <div className="serviceCode1">
+                            <p>Date : <span className="code">21/05/21</span></p>
+                        </div>
+                        <div className="serviceCategory1">
+                            <p>About : <span className="category">Payments</span></p>
+                        </div>
+                        <div className="address1">
+                            <p><span className="category">Mail customer</span></p>
+                        </div>
                     </div>
                 </div>
             </div>

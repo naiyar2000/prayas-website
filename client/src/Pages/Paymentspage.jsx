@@ -1,5 +1,4 @@
 import React from 'react'
-import NavigationSidebar from '../Components/NavigationSidebar';
 // import app from '../firebase'
 import ServiceCards from '../Components/ServiceCards'
 
@@ -23,11 +22,7 @@ const Paymentspage = () => {
 
     return (
         <>
-            <div style={{display: 'flex'}}>
-                <div style={{flex: 1}}>
-                    <NavigationSidebar selected="service"/>
-                </div>
-                <div style={{flex: 3}}>
+                <div>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
                         <h1 style={{paddingLeft: '10px'}}>All Services</h1>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
@@ -57,7 +52,6 @@ const Paymentspage = () => {
                         }
                     </div> */}
                 </div>
-            </div>
         </>
     )
 }

@@ -2,13 +2,7 @@ import React from 'react'
 import serviceImage from '../Assets/serviceImage.jpg'
 import './css/ServiceDetailsComponent.css'
 
-const ServiceDetailsComponent = () => {
-
-    const rows = [
-        {"slno": "1", "service": "Haircut", "price": "₹500"},
-        {"slno": "1", "service": "Bikini wax", "price": "₹1000"},
-        {"slno": "1", "service": "Haircut", "price": "₹500"},
-    ];
+const ServiceDetailsComponent = ({serviceList, priceList, amount, serviceDetails}) => {
 
     return (
         <div className="card">
@@ -22,7 +16,7 @@ const ServiceDetailsComponent = () => {
                         <div className="serviceCode1">
                             <p>Service code : <span className="code">#2389046</span></p>
                         </div>
-                        <h1 style={{margin: '0px', padding: '0px', fontSize: '24px'}}>Perfect salon</h1>
+                        <h1 style={{margin: '0px', padding: '0px', fontSize: '24px'}}>{serviceDetails.shopName}</h1>
                         <div className="serviceCategory1">
                             <p>Service category : <span className="category">Salon</span></p>
                         </div>
@@ -57,17 +51,17 @@ const ServiceDetailsComponent = () => {
             </div>
             <div className="wholeTableRow">
                 {
-                    rows.map((res) => {
+                    serviceList.map((res, i) => {
                         return (
                                 <div className="tableRows">
                                     <div>
-                                        <p className="slnoRow">{res["slno"]}</p>
+                                        <p className="slnoRow">{i+1}</p>
                                     </div>
                                     <div>
-                                        <p className="serviceRow">{res["service"]}</p>
+                                        <p className="serviceRow">{res}</p>
                                     </div>
                                     <div>
-                                        <p className="priceRow">{res["price"]}</p>
+                                        <p className="priceRow">{priceList[i]}</p>
                                     </div>
                                 </div>
                         )
@@ -82,7 +76,7 @@ const ServiceDetailsComponent = () => {
                         <p className="serviceTotal">Total</p>
                     </div>
                     <div>
-                        <p className="priceRow">sd</p>
+                        <p className="priceRow">{amount}</p>
                     </div>
                 </div>
         </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import NavigationSidebar from '../Components/NavigationSidebar'
 import ServiceCards from '../Components/ServiceCards'
 import './css/Servicepage.css'
 import app from '../firebase'
@@ -25,11 +24,7 @@ const Servicepage = () => {
 
     return (
         <>
-            <div style={{display: 'flex'}}>
-                <div style={{flex: 1}}>
-                    <NavigationSidebar/>
-                </div>
-                <div style={{flex: 3}}>
+                <div>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
                         <h1 style={{paddingLeft: '10px'}}>All Services</h1>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
@@ -91,7 +86,6 @@ const Servicepage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }
