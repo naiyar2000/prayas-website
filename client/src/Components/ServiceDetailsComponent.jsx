@@ -15,14 +15,14 @@ const ServiceDetailsComponent = () => {
             <div className="heading">Service Details</div>
             <div className="photoColumn">
                 <div className="imageFile">
-                    <img src={serviceImage} height="130px" width="130px" alt="" />
+                    <img src={serviceImage} height="100px" width="100px" alt="" />
                 </div>
                 <div className="photoRightSide">
                     <div>
                         <div className="serviceCode1">
                             <p>Service code : <span className="code">#2389046</span></p>
                         </div>
-                        <h1 style={{margin: '0px', padding: '0px'}}>Perfect salon</h1>
+                        <h1 style={{margin: '0px', padding: '0px', fontSize: '24px'}}>Perfect salon</h1>
                         <div className="serviceCategory1">
                             <p>Service category : <span className="category">Salon</span></p>
                         </div>
@@ -42,7 +42,7 @@ const ServiceDetailsComponent = () => {
                 <p>Start time : <span>08:10 AM</span></p>
             </div>
             <div className="tableTitle">
-                <h3>Services Booked</h3>
+                <h3 style={{fontSize: '14px'}}>Services Booked</h3>
             </div>
             <div className="tableHeadings">
                 <div className='slno'>

@@ -43,9 +43,9 @@ const Paymentspage = () => {
                         </div>
                     </div>
                     <div className='serviceCards'>
-                       <ServiceCards registered="08" newRequest="03" type="Salon" firstTite="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
-                       <ServiceCards registered="07" newRequest="02" type="Parlour" firstTite="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
-                       <ServiceCards registered="06" newRequest="02" type="Doctor" firstTite="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
+                       <ServiceCards registered="08" newRequest="03" type="Salon" firstTitle="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
+                       <ServiceCards registered="07" newRequest="02" type="Parlour" firstTitle="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
+                       <ServiceCards registered="06" newRequest="02" type="Doctor" firstTitle="From Customer to Service Provider" secondTitle="From Service provider to Admin"/>
                     </div>
                     {/* <div className="serviceLists">
                         {

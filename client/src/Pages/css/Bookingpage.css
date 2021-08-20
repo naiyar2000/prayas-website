@@ -12,6 +12,22 @@
     margin-left: 0.5rem;
 }
 
-.serviceCards1 {
+.bookingCards {
     margin-left: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.serviceCards1 {
+    flex: 6;
+}
+
+.customerAndPayments {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }

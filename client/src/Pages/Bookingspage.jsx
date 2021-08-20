@@ -1,5 +1,7 @@
 import React from 'react'
+import CustomerDetailsCard from '../Components/CustomerDetailsCard';
 import NavigationSidebar from '../Components/NavigationSidebar';
+import PaymentsDetailsCard from '../Components/PaymentsDetailsCard';
 import SearchBar from '../Components/searchBar';
 import ServiceDetailsComponent from '../Components/ServiceDetailsComponent';
 import './css/Bookingpage.css'
@@ -8,7 +10,7 @@ const Bookingspage = () => {
     return (
         <>
         <div style={{display: 'flex'}}>
-            <div style={{flex: 1}}>
+            <div style={{flex: 1, backgroundColor: '#5D5FEF'}}>
                 <NavigationSidebar isbooking={true}/>
             </div>
             <div style={{flex: 4}}>
@@ -22,8 +24,18 @@ const Bookingspage = () => {
                         <h2>Booking :<span className="bookingCode">#20435</span></h2> 
                     </div>
                 </div>
-                <div className='serviceCards1'>
-                    <ServiceDetailsComponent />
+                <div className="bookingCards">
+                    <div className='serviceCards1'>
+                        <ServiceDetailsComponent />
+                    </div>
+                    <div className="customerAndPayments">
+                        <div style={{flex: '1'}}>
+                            <CustomerDetailsCard />
+                        </div>
+                        <div style={{flex: '1'}}>
+                            <PaymentsDetailsCard />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

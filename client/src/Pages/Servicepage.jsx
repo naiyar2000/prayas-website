@@ -49,9 +49,9 @@ const Servicepage = () => {
                         </div>
                     </div>
                     <div className='serviceCards'>
-                       <ServiceCards registered="08" newRequest="03" type="Salon"/>
-                       <ServiceCards registered="07" newRequest="02" type="Parlour"/>
-                       <ServiceCards registered="06" newRequest="02" type="Doctor"/>
+                       <ServiceCards registered="08" newRequest="03" type="Salon" firstTitle="Registered" secondTitle="New Request"/>
+                       <ServiceCards registered="07" newRequest="02" type="Parlour" firstTitle="Registered" secondTitle="New Request"/>
+                       <ServiceCards registered="06" newRequest="02" type="Doctor" firstTitle="Registered" secondTitle="New Request"/>
                     </div><br />
                     <div className= "serviceSection">
                         <div className='serviceCode'>
