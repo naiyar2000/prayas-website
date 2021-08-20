@@ -20,7 +20,7 @@ const PaymentsDetailsCard = () => {
                                 <p>Amount received from customer</p>
                                 <h4 style={{margin: '0'}}>₹500</h4>
                             </div>
-                            <div style={{height: '10px'}}></div>
+                            <div style={{height: '15px'}}></div>
                             <div className="paymentMode">
                                 <p>Payment mode : <span className="category">UPI</span></p>
                                 <p>Status : <span className="Paymentstatus">Success</span></p>
