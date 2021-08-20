@@ -15,7 +15,7 @@
     padding: 0;
 }
 
-.code,.category {
+.code,.category,.slotAndService>p>span {
     color: #5D5FEF;
     border: 2px solid #5D5FEF;
     padding: 2px 8px;
@@ -31,6 +31,7 @@
 
 .imageFile {
     flex: 1;
+    margin-right: 1rem;
 }
 
 .heading {
@@ -40,4 +41,106 @@
     border-radius: 8px 8px 0px 0px;
 }
 
+.slotAndService {
+    background-color: #EFF9FF;
+    margin: auto;
+    padding: 1rem;
+}
 
+.slotAndService>p {
+    text-align: center;
+    margin: 1rem 1rem;
+}
+
+.tableTitle {
+    margin-left: 2rem;
+}
+
+.tableHeadings {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 0px 2rem;
+}
+
+.slno {
+    flex: 1;
+    text-align: center;
+    border-radius: 16px 0 0 0;
+    background-color: #5D5FEF;
+    color: white;
+    margin-right: 0.2rem;
+}
+
+.service {
+    flex: 1;
+    margin-right: 0.2rem;
+    text-align: center;
+    background-color: #0F2735;
+    color: white;
+}
+
+.price {
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+    border-radius: 0 16px 0 0;
+    background-color: #5D5FEF;
+    color: white;
+}
+
+.tableRows, .lastRow {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    /* margin: 0px 2rem; */
+}
+
+.slnoRow, .priceRow {
+    text-align: center;
+}
+
+.tableRows>div {
+    flex: 1;
+    border-left: 2px solid #C4C4C4;
+}
+
+.lastRow>div {
+    flex: 1;
+    border-left: 2px solid #5D5FEF;
+}
+
+.lastRow>div:first-child {
+    border: none;
+}
+
+.tableRows>div>p, .lastRow>div>p {
+    padding: 0;
+    margin: 0.5rem 1rem;
+}
+
+.tableRows, .lastRow>div {
+    margin-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #F3F3F3;
+}
+
+.lastRow {
+    margin: 0 2rem;
+    display: flex;
+}
+
+.wholeTableRow {
+    border-bottom: 2px solid #5D5FEF;
+    margin: 0px 2rem;
+}
+
+.serviceRow{
+    padding-left: 1rem;
+}
+
+.serviceTotal {
+    color: #5D5FEF;
+}
