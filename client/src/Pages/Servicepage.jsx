@@ -38,9 +38,11 @@ const Servicepage = () => {
                                     To : 02/05/2000
                                 </p>
                             </div>
-                            <p>
-                                This Week
-                            </p>
+                            <div className='dateContainer'>
+                                <p>
+                                    This Week
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className='serviceCards'>
@@ -85,7 +87,32 @@ const Servicepage = () => {
                             }
                         </div>
                         <div className="serviceCategory" style={{backgroundColor: "white", color: "black"}}>
-                            <p>View Details</p>
+                            {
+                                serviceList.map((res) => {
+                                    return (
+                                        <ul>Parlour</ul>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="date" style={{backgroundColor: "white", color: "black"}}>
+                            {
+                                serviceList.map((res) => {
+                                    return (
+                                        <ul>Date</ul>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="status" style={{backgroundColor: "white", color: "black"}}>
+                            {
+                                serviceList.map((res) => {
+                                    return (
+                                        // <ul><div className="rejectedButton">Rejected</div></ul>
+                                        <ul>{res.data().status=="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status=="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</ul>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>
