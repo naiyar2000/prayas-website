@@ -10,7 +10,7 @@ const Bookingspage = () => {
 
     const [inputText, setInputText] = useState("");
 
-    var count = 0;
+    // var count = 0;
 
     const [bookingDetails, setBookingDetails] = useState({});
 
@@ -54,7 +54,7 @@ const Bookingspage = () => {
                 <div className="bookingCards">
                     <div className='serviceCards1'>
                         {
-                            Object.keys(bookingDetails).length==0 ?
+                            Object.keys(bookingDetails).length===0 ?
                              null :
                                 <ServiceDetailsComponent 
                                     serviceList={bookingDetails.serviceName}
@@ -62,7 +62,7 @@ const Bookingspage = () => {
                                     amount={bookingDetails.amount}
                                     serviceDetails={bookingDetails}
                                 />
-                        }
+                        } 
                         
                     </div>
                     <div className="customerAndPayments">
