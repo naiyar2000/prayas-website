@@ -90,7 +90,7 @@ const Servicepage = () => {
                             {
                                 serviceList.map((res) => {
                                     return (
-                                        <ul>Parlour</ul>
+                                        <ul>{res.data().details.serviceType}</ul>
                                     )
                                 })
                             }
@@ -98,8 +98,8 @@ const Servicepage = () => {
                         <div className="date" style={{backgroundColor: "white", color: "black"}}>
                             {
                                 serviceList.map((res) => {
-                                    return (
-                                        <ul>Date</ul>
+                                    return ( 
+                                        <ul>{res.data().location.regDate.toDate().toDateString()}</ul>
                                     )
                                 })
                             }
@@ -108,8 +108,7 @@ const Servicepage = () => {
                             {
                                 serviceList.map((res) => {
                                     return (
-                                        // <ul><div className="rejectedButton">Rejected</div></ul>
-                                        <ul>{res.data().status=="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status=="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</ul>
+                                        <ul>{res.data().status==="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status==="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</ul>
                                     )
                                 })
                             }
