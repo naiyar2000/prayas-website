@@ -84,15 +84,44 @@
 
 .dateContainer{
     border-color: #5D5FEF;
-    color: #5D5FEF;
+    color: white;
+    background-color: #5D5FEF;
     border-radius: 20%;
     border: 10%;
     margin-left: 5 px;
     margin-right: 5 px;
+    margin: 10%;
 }
 
 .detailsContainer{
     border-color: #5D5FEF;
     color: #5D5FEF;
     border-radius: 20%;
+}
+
+.pendingButton{
+    background-color: #FFC700;
+    color: black;
+    border: 2px solid #FFC700;
+    border-radius: 16px;
+    height: 1%;
+    width: 50%;
+}
+
+.acceptedButton{
+    background-color: #DCFFF5;
+    color: #1FA47D;
+    border: 2px solid #1FA47D;
+    border-radius: 16px;
+    height: 1%;
+    width: 60%;
+}
+
+.rejectedButton{
+    background-color: #FFE0D9;
+    color: #BC3030;
+    border: 2px solid #BC3030;
+    border-radius: 16px;
+    height: 1%;
+    width: 60%;
 }
