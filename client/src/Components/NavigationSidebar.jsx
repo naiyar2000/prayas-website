@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../Assets/logo.png'
 import './css/NavigationSidebar.css'
 
@@ -17,17 +17,17 @@ const NavigationSidebar = ({isbooking=false}) => {
                 </div>
 
                 <ul className="navbar-nav">
-                    <li className="nav-item"><Link to="/" className="nav-link"><span className="link-text">Service</span></Link></li>
-                    <li  className="nav-item"><Link to="/payment" className="nav-link"><span className="link-text">Payment</span></Link></li>
-                    <li className="nav-item"><Link to="/booking" className="nav-link"><span className="link-text">Booking</span></Link></li>
-                    <li className="nav-item"><Link to="/booking" className="nav-link"><span className="link-text">Complaint and queries</span></Link></li>
-                    <li className="nav-item"><Link to="/booking" className="nav-link"><span className="link-text">Add information</span></Link></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" exact to="/" className="nav-link"><span className="link-text">Service</span></NavLink></li>
+                    <li  className="nav-item"><NavLink activeClassName="activeLink" to="/payment" className="nav-link"><span className="link-text">Payment</span></NavLink></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Booking</span></NavLink></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Complaint and queries</span></NavLink></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Add information</span></NavLink></li>
                 </ul>
                 {
                     isbooking ? (
                         <ul className="navbar-nav2">
-                            <li className="nav-item2"><Link to="/booking" className="nav-link2"><span className="link-text">New Input</span></Link></li>
-                            <li className="nav-item2"><Link to="/booking" className="nav-link2"><span className="link-text">Add agent</span></Link></li>
+                            <li className="nav-item2"><NavLink activeClassName="activeLink" to="/booking" className="nav-link2"><span className="link-text">New Input</span></NavLink></li>
+                            <li className="nav-item2"><NavLink activeClassName="activeLink" to="/booking" className="nav-link2"><span className="link-text">Add agent</span></NavLink></li>
                         </ul>
                     ) : null
                 }  
