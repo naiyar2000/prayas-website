@@ -20,8 +20,8 @@ const NavigationSidebar = ({isbooking=false}) => {
                     <li className="nav-item"><NavLink activeClassName="activeLink" exact to="/" className="nav-link"><span className="link-text">Service</span></NavLink></li>
                     <li  className="nav-item"><NavLink activeClassName="activeLink" to="/payment" className="nav-link"><span className="link-text">Payment</span></NavLink></li>
                     <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Booking</span></NavLink></li>
-                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Complaint and queries</span></NavLink></li>
-                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/booking" className="nav-link"><span className="link-text">Add information</span></NavLink></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/complaintQueries" className="nav-link"><span className="link-text">Complaint and queries</span></NavLink></li>
+                    <li className="nav-item"><NavLink activeClassName="activeLink" to="/addInformation" className="nav-link"><span className="link-text">Add information</span></NavLink></li>
                 </ul>
                 {
                     isbooking ? (
