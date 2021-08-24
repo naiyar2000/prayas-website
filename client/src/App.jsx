@@ -4,6 +4,8 @@ import Bookingspage from './Pages/Bookingspage';
 import Paymentspage from './Pages/Paymentspage';
 import Servicepage from './Pages/Servicepage';
 import NavigationSidebar from './Components/NavigationSidebar';
+import ComplaintQueriesPage from './Pages/ComplaintQueriesPage';
+import AddInformationPage from './Pages/AddInformationPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route exact path="/" component={Servicepage}/>
             <Route exact path="/payment" component={Paymentspage}/>
             <Route exact path="/booking" component={Bookingspage}/>
+            <Route exact path="/complaintQueries" component={ComplaintQueriesPage}/>
+            <Route exact path="/addInformation" component={AddInformationPage}/>
           </div>
         </div>
       </Router>
