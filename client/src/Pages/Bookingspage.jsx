@@ -1,82 +1,128 @@
 import React, { useState } from 'react'
-import CustomerDetailsCard from '../Components/CustomerDetailsCard'
-import PaymentsDetailsCard from '../Components/PaymentsDetailsCard'
-import ServiceDetailsComponent from '../Components/ServiceDetailsComponent'
 import app from '../firebase'
 import './css/Bookingpage.css'
 import '../Components/css/searchBar.css'
+import ServiceCards from '../Components/ServiceCards'
+import IndividualBookingpage from './IndividualBookingpage'
+
 
 const Bookingspage = () => {
 
-    const [inputText, setInputText] = useState("");
+    const [allBookings, setAllBookings] = useState([]);
 
-    // var count = 0;
-
-    const [bookingDetails, setBookingDetails] = useState({});
-
-    const searchBooking = async (e) => {
-        e.preventDefault();
-        try {
-            const bookingData =  await app.firestore().collection("ServiceProviders").get();
-            bookingData.forEach((doc) => {
-                doc.data().event.forEach((res) => {
-                    if(inputText===res.otp) {
-                        setBookingDetails(res);
-                    }
+    React.useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let tempbooking = [];
+                app.firestore().collection("Users").get().then((snapshot) => {
+                    snapshot.forEach((res) => {
+                        if(res.data().bookings) {
+                            res.data().bookings.forEach((dat) => {
+                                    tempbooking.push(dat);
+                                }
+                            )
+                        }
+                    })
                 })
-            });
-        } catch (error) {
-            console.log(error);
+                setAllBookings(tempbooking);
+            } catch (error) {
+                console.log(error);
+            }
         }
-    }
+        fetchData();
+    }, []);
+
+    
+    const [isIndividualScreen, setIndividualScreen] = useState(true);
+
+    const setBookingtoIndividual = () => setIndividualScreen(true);
+    const setBookingtoAll = () => setIndividualScreen(false);
 
     return (
         <>
-            <div style={{flex: 4}}>
-                <div style={{color: 'white', backgroundColor: '#0F2735', marginBottom: '2rem'}}>
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'white'}}>
-                        <h1 style={{paddingLeft: '1rem', marginLeft: '3rem'}}>Bookings</h1>
-                        {/* search bar */}
-                        <form onSubmit={(e) => searchBooking(e)}>
-                            <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center', marginRight: '4rem'}}>
-                                <div className="form-group">
-                                    <input type="text" className="form-field" placeholder="Enter booking code" onChange={(event) => setInputText(event.target.value)}/>
-                                    <div className="fas fa-arrow-right" onClick={(e) => searchBooking(e)} style={{cursor: 'pointer'}}></div>
+            {
+                isIndividualScreen===true ? 
+                    (<IndividualBookingpage setAll={setBookingtoAll} setIndividual={setBookingtoIndividual} />) : (
+                        <div>
+                            <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
+                                <h1 style={{marginLeft: '2rem', fontWeight: '400'}}>Bookings</h1>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center'}}>
+                                    <div className="dateContainer">
+                                        This week
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div style={{height: "2px", backgroundColor:"#5D5FEF", marginLeft: '4rem', marginRight: '4rem'}}></div>
-                    <div className="secondHeading">
-                        <h2>Booking :<span className="bookingCode">#{bookingDetails.otp}</span></h2> 
-                    </div>
-                </div>
-                <div className="bookingCards">
-                    <div className='serviceCards1'>
-                        {
-                            Object.keys(bookingDetails).length===0 ?
-                             null :
-                                <ServiceDetailsComponent 
-                                    serviceList={bookingDetails.serviceName}
-                                    priceList={bookingDetails.price}
-                                    amount={bookingDetails.amount}
-                                    serviceDetails={bookingDetails}
-                                />
-                        } 
-                        
-                    </div>
-                    <div className="customerAndPayments">
-                        <div style={{flex: '1'}}>
-                            <CustomerDetailsCard />
+                            <div className='serviceCards'>
+                                <ServiceCards registered="200" newRequest="123" type="Salon" firstTitle="Total bookings" secondTitle="Completed bookings"/>
+                                <ServiceCards registered="150" newRequest="70" type="Parlour" firstTitle="Total bookings" secondTitle="Completed bookings"/>
+                                <ServiceCards registered="170" newRequest="120" type="Doctor" firstTitle="Total bookings" secondTitle="Completed bookings"/>
+                            </div>
+                            <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'black'}}>
+                                <div style={{display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                                    <h1 style={{marginLeft: '2rem', fontWeight: '400'}}>Service List</h1>
+                                </div>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center', marginRight: '4rem'}}>
+                                    <div className="form-group" onClick={() => setBookingtoIndividual()}>
+                                        <input type="text" className="form-field" placeholder="Enter booking code"/>
+                                        <div className="fas fa-arrow-right" style={{cursor: 'pointer'}}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="tableHeadings">
+                                <div className='bookingpageCode'>
+                                    <p>Booking code</p>
+                                </div>
+                                <div className='bookingpageDate'>
+                                    <p>Date</p>
+                                </div>
+                                <div className='bookingpageServiceProvider'>
+                                    <p>Service provider</p>
+                                </div>
+                                <div className='bookingpageServiceCategory'>
+                                    <p>Service category</p>
+                                </div>
+                                <div className='bookingpageCompensation'>
+                                    <p>Compensation</p>
+                                </div>
+                                <div className='bookingpageStatus'>
+                                    <p>Status</p>
+                                </div>
+                            </div>
+                            <div className="wholeTableRow">
+                                {
+                                    allBookings.map((res, i) => {
+                                        return (
+                                                <div className="tableRows" key={res.otp}>
+                                                    <div>
+                                                        <p className="slnoRow">{res.otp}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="serviceRow">{res.date.toString().toDate()}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.name}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.name}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.name}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.name}</p>
+                                                    </div>
+                                                </div>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
-                        <div style={{flex: '1'}}>
-                            <PaymentsDetailsCard />
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </>
+                )
+            }
+        </>
     )
 }
 
 export default Bookingspage;
+
+
