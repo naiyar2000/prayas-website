@@ -33,7 +33,7 @@ const Bookingspage = () => {
     }, []);
 
     
-    const [isIndividualScreen, setIndividualScreen] = useState(true);
+    const [isIndividualScreen, setIndividualScreen] = useState(false);
 
     const setBookingtoIndividual = () => setIndividualScreen(true);
     const setBookingtoAll = () => setIndividualScreen(false);
@@ -97,19 +97,22 @@ const Bookingspage = () => {
                                                         <p className="slnoRow">{res.otp}</p>
                                                     </div>
                                                     <div>
-                                                        <p className="serviceRow">{res.date.toString().toDate()}</p>
+                                                        <p className="serviceRow">{res.date.toDate().toDateString()}</p>
                                                     </div>
                                                     <div>
-                                                        <p className="priceRow">{res.name}</p>
+                                                        <p className="priceRow">{res.shopName}</p>
                                                     </div>
                                                     <div>
-                                                        <p className="priceRow">{res.name}</p>
+                                                        <p className="priceRow">Parlour</p>
                                                     </div>
                                                     <div>
-                                                        <p className="priceRow">{res.name}</p>
+                                                        <p className="priceRow">{res.amount}</p>
                                                     </div>
                                                     <div>
-                                                        <p className="priceRow">{res.name}</p>
+                                                        <p className="priceRow">{
+                                                            res.isApproved===true ? 
+                                                            "Approved": "Pending"
+                                                        }</p>
                                                     </div>
                                                 </div>
                                         )

@@ -72,10 +72,18 @@ const IndividualBookingpage = ({setAll,setIndividual}) => {
                         </div>
                         <div className="customerAndPayments">
                             <div style={{flex: '1'}}>
-                                <CustomerDetailsCard />
+                                {
+                                     Object.keys(bookingDetails).length===0 ?
+                                     null :
+                                <CustomerDetailsCard />    
+                                }
                             </div>
                             <div style={{flex: '1'}}>
+                                {
+                                     Object.keys(bookingDetails).length===0 ?
+                                     null :
                                 <PaymentsDetailsCard />
+                                }
                             </div>
                         </div>
                     </div>
