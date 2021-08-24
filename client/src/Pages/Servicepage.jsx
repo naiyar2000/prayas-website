@@ -89,6 +89,9 @@ const Servicepage = () => {
                                 })
                             }
                         </div>
+                        <div className="serviceCategory" style={{backgroundColor: "white", color: "black"}}>
+                            <p>View Details</p>
+                        </div>
                     </div>
                 </div>
             </div>

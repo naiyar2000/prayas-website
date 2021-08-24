@@ -90,3 +90,9 @@
     margin-left: 5 px;
     margin-right: 5 px;
 }
+
+.detailsContainer{
+    border-color: #5D5FEF;
+    color: #5D5FEF;
+    border-radius: 20%;
+}
