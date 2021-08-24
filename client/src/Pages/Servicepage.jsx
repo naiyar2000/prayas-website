@@ -81,7 +81,7 @@ const Servicepage = () => {
                             {
                                 serviceList.map((res) => {
                                     return (
-                                        <ul>{res.data().location.name}</ul>
+                                        <ul><u><b>{res.data().location.name}</b></u></ul>
                                     )
                                 })
                             }
