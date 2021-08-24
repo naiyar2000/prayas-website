@@ -108,7 +108,8 @@ const Servicepage = () => {
                             {
                                 serviceList.map((res) => {
                                     return (
-                                        <ul><div className="rejectedButton">Rejected</div></ul>
+                                        // <ul><div className="rejectedButton">Rejected</div></ul>
+                                        <ul>{res.data().status=="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status=="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</ul>
                                     )
                                 })
                             }
