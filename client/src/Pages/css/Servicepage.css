@@ -14,6 +14,8 @@
     align-items: center;
     margin-right: 30px;
     margin-left: 10px;
+    border-left: 2px solid #C4C4C4;
+    border-right: 2px solid #C4C4C4;
 }
 
 .serviceCode{
@@ -83,11 +85,12 @@
 }
 
 .dateContainer{
-    border-color: #5D5FEF;
-    color: white;
-    background-color: #5D5FEF;
+    padding: 2% 0 0 0 ;
+    width: 150px;
+    color: #5D5FEF;
+    background-color: white;
     border-radius: 20%;
-    border: 10%;
+    border: 2px solid #5D5FEF;
     margin-left: 5 px;
     margin-right: 5 px;
     margin: 10%;
@@ -124,4 +127,16 @@
     border-radius: 16px;
     height: 1%;
     width: 60%;
+}
+
+.viewButton{
+    background-color: white;
+    color: #5D5FEF;
+    font-size: small;
+    border: 2px solid #5D5FEF;
+    border-radius: 16px;
+    height: 1%;
+    width: 20%;
+    margin-right: 5%;
+    text-align: center;
 }

@@ -50,7 +50,7 @@ const Servicepage = () => {
                        <ServiceCards registered="07" newRequest="02" type="Parlour" firstTitle="Registered" secondTitle="New Request"/>
                        <ServiceCards registered="06" newRequest="02" type="Doctor" firstTitle="Registered" secondTitle="New Request"/>
                     </div><br />
-                    <div className= "serviceSection">
+                    {/* <div>
                         <div className='serviceCode'>
                             <p>Service Code</p>
                         </div>
@@ -66,54 +66,50 @@ const Servicepage = () => {
                         <div className='status'>
                             <p>Status</p>
                         </div>
+                    </div> */}
+                    <div className="tableHeadings">
+                                <div className='bookingpageCode'>
+                                    <p>Service code</p>
+                                </div>
+                                <div className='bookingpageDate' style={{flex:2}}>
+                                    <p>Name of the service provider</p>
+                                </div>
+                                <div className='bookingpageServiceProvider'>
+                                    <p>Service Category</p>
+                                </div>
+                                <div className='bookingpageServiceCategory'>
+                                    <p>Date</p>
+                                </div>
+                                <div className='bookingpageCompensation'>
+                                    <p>Status</p>
+                                </div>
                     </div>
-                    <div className="serviceSection">
-                        <div className="serviceCode" style={{backgroundColor: "white", color: "black"}}>
-                            {
-                                serviceList.map((res) => {
-                                    return (
-                                        <ul>{res.data().location.serviceUid}</ul>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className="serviceName" style={{backgroundColor: "white", color: "black"}}>
-                            {
-                                serviceList.map((res) => {
-                                    return (
-                                        <ul><u><b>{res.data().location.name}</b></u></ul>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className="serviceCategory" style={{backgroundColor: "white", color: "black"}}>
-                            {
-                                serviceList.map((res) => {
-                                    return (
-                                        <ul>{res.data().details.serviceType}</ul>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className="date" style={{backgroundColor: "white", color: "black"}}>
-                            {
-                                serviceList.map((res) => {
-                                    return ( 
-                                        <ul>{res.data().location.regDate.toDate().toDateString()}</ul>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className="status" style={{backgroundColor: "white", color: "black"}}>
-                            {
-                                serviceList.map((res) => {
-                                    return (
-                                        <ul>{res.data().status==="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status==="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</ul>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
+                    <div className="wholeTableRow">
+                                {
+                                    serviceList.map((res, i) => {
+                                        return (
+                                                <div className="tableRows">
+                                                    <div>
+                                                        <p className="slnoRow">{res.data().location.serviceUid}</p>
+                                                    </div>
+                                                    <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
+                                                        <p className="serviceRow">{res.data().location.name}</p>
+                                                        <div className="viewButton">View Items</div>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.data().details.serviceType}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="priceRow">{res.data().location.regDate.toDate().toDateString()}</p>
+                                                    </div>
+                                                    <div style={{alignItems: 'center'}}>
+                                                        <p className="priceRow">{res.data().status==="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status==="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</p>
+                                                    </div>
+                                                </div>
+                                        )
+                                    })
+                                }
+                            </div>
                 </div>
         </>
     )
