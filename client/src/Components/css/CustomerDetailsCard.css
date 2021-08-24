@@ -1,0 +1,19 @@
+
+.photoColumnCustomer {
+    display: flex;
+    margin: 0rem 1rem;
+    align-items: center;
+}
+
+.photoRightSideCustomer {
+    flex: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customerCard {
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    margin-right: 2rem;
+}

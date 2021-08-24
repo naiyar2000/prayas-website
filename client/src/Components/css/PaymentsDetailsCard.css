@@ -1,0 +1,38 @@
+.amountReceived {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.paymentMode {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.onePayment {
+    border-left: 2px solid #5D5FEF;
+    margin: 0.5rem 1rem;
+    padding-left: 0.8rem;
+}
+
+.onePayment>div>p {
+    margin: 0;
+}
+
+.Paymentstatus {
+    color: #00A776;
+    border: 2px solid #00A776;
+    background-color: #C2FFEE;
+    padding: 2px 8px;
+    border-radius: 16px;
+}
+
+.paymentCard {
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    margin-right: 2rem;
+    padding-bottom: 2rem;
+}

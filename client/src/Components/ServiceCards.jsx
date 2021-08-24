@@ -2,11 +2,11 @@ import React from 'react'
 import './css/ServiceCards.css'
 import salonPng from '../Assets/salon.png'
 
-const ServiceCards = ({registered, newRequest, type, firstTite, secondTitle}) => {
+const ServiceCards = ({registered, newRequest, type, firstTitle, secondTitle}) => {
     return (
         <div className="customCards">
             <div className="col1">
-                <h3>{firstTite}</h3>
+                <h3>{firstTitle}</h3>
                 <h1>{registered}</h1>
                 <h3>{secondTitle}</h3>
                 <h1>{newRequest}</h1>
