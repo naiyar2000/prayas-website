@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ServiceCards from '../Components/ServiceCards'
+import { NavLink } from 'react-router-dom'
 import './css/Servicepage.css'
 import app from '../firebase'
 
@@ -94,7 +95,7 @@ const Servicepage = () => {
                                                     </div>
                                                     <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
                                                         <p className="serviceRow">{res.data().location.name}</p>
-                                                        <div className="viewButton">View Items</div>
+                                                        <NavLink to={{pathname: '/acceptPage', state: res.data().location.serviceUid+"&"+res.data().location.shopNo}}  className="viewButton">View Items</NavLink>
                                                     </div>
                                                     <div>
                                                         <p className="priceRow">{res.data().details.serviceType}</p>
@@ -103,7 +104,13 @@ const Servicepage = () => {
                                                         <p className="priceRow">{res.data().location.regDate.toDate().toDateString()}</p>
                                                     </div>
                                                     <div style={{alignItems: 'center'}}>
-                                                        <p className="priceRow">{res.data().status==="Rejected"?<div className="rejectedButton">Rejected</div>:res.data().status==="Accepted"?<div className="acceptedButton">Accepted</div>:<div className="pendingButton">Pending</div>}</p>
+                                                        <p className="priceRow">
+                                                            {
+                                                                res.data().location.status==="Rejected" ? 
+                                                                    <div className="rejectedButton">Rejected</div> : res.data().location.status==="Accepted" ? 
+                                                                        <div className="acceptedButton">Accepted</div> : <div className="pendingButton">Pending</div>
+                                                            }
+                                                        </p>
                                                     </div>
                                                 </div>
                                         )

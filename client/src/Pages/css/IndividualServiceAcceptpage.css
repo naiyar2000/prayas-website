@@ -1,0 +1,9 @@
+.accept, .reject {
+    background-color: rgb(119, 119, 179);
+    border-radius: 16px;
+    cursor: pointer;
+    width: 6rem;
+    height: 1.5rem;
+    display: block;
+    margin: 1rem;
+}
