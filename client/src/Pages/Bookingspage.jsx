@@ -11,8 +11,8 @@ const Bookingspage = () => {
     const [allBookings, setAllBookings] = useState([]);
 
     React.useEffect(() => {
-        const fetchData = async () => {
-            try {
+        const fetchData = () => {
+         
                 let tempbooking = [];
                 app.firestore().collection("Users").get().then((snapshot) => {
                     snapshot.forEach((res) => {
@@ -22,12 +22,10 @@ const Bookingspage = () => {
                                 }
                             )
                         }
-                    })
+                    });
+                    setAllBookings(tempbooking);
                 })
-                setAllBookings(tempbooking);
-            } catch (error) {
-                console.log(error);
-            }
+          
         }
         fetchData();
     }, []);
@@ -90,7 +88,7 @@ const Bookingspage = () => {
                             </div>
                             <div className="wholeTableRow">
                                 {
-                                    allBookings.map((res, i) => {
+                                    allBookings.length!==0?allBookings.map((res, i) => {
                                         return (
                                                 <div className="tableRows" key={res.otp}>
                                                     <div>
@@ -116,7 +114,10 @@ const Bookingspage = () => {
                                                     </div>
                                                 </div>
                                         )
-                                    })
+                                    }): 
+                                    <div style={{margin: 'auto', height: '30vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="spinner-border">
+                                        Loading ...
+                                    </div>
                                 }
                             </div>
                         </div>
