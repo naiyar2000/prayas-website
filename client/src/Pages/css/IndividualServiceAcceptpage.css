@@ -7,3 +7,10 @@
     display: block;
     margin: 1rem;
 }
+
+.fa-window-close {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

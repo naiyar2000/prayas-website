@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+// import { NavLink, useLocation } from 'react-router-dom'
 import app from '../firebase';
 import './css/IndividualServiceAcceptpage.css'
 
-const IndividualServiceAcceptpage = () => {
-    let location = useLocation();
+const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
+    // let location = useLocation();
 
-    let uid = location.state.split('&')[0];
-    let shopNo = location.state.split('&')[1];
+    // let uid = location.state.split('&')[0];
+    // let shopNo = location.state.split('&')[1];
 
     const [thisService, setThisService] = useState({});
 
@@ -39,28 +39,35 @@ const IndividualServiceAcceptpage = () => {
         });
     }
 
+
     return (
         <>
           <div style={{flex: 4}}>
-                    <div style={{color: 'white', backgroundColor: '#0F2735', marginBottom: '2rem'}}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'white'}}>
-                            <div>
-                                <div style={{display: 'flex', marginLeft: '2.2rem', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
-                                    <NavLink to="/" className="fas fa-arrow-left" style={{cursor: 'pointer'}}></NavLink>
-                                    <h1 style={{paddingLeft: '1rem'}}>Form no : #{thisService.serviceUid}</h1>
-                                </div>
-                                <div>
-                                    <p>Service Category : {location.state}</p>
-                                    <p>Submission Date : </p>
-                                </div>
+                <div style={{color: 'white', backgroundColor: '#0F2735', marginBottom: '2rem'}}>
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'white'}}>
+                        <div>
+                            <div style={{display: 'flex', marginLeft: '2.2rem', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+                                <h1 style={{paddingLeft: '1rem'}}>Form no : #{thisService.serviceUid}</h1>
                             </div>
-                            <div className="acceptReject">
-                                <button onClick={() => setAccept()} className="accept">Accept</button>
-                                <button onClick={() => setReject()} className="reject">Reject</button>
+                            <div>
+                                <p>Service Category : {uid}</p>
+                                <p>Submission Date : </p>
                             </div>
                         </div>
+                        <div className="acceptReject">
+                            <div className="fa fa-window-close" onClick={() => toggle()}></div>
+                            <button onClick={() => setAccept()} className="accept">Accept</button>
+                            <button onClick={() => setReject()} className="reject">Reject</button>
+                        </div>
                     </div>
-                </div>  
+                </div>
+                <div className="detailsTabls">
+                    <div className="detailsTabls-1">General Details</div>
+                    <div className="detailsTabls-2">Doctor Details</div>
+                    <div className="detailsTabls-3">Service List</div>
+                    <div className="detailsTabls-4">Comments</div>
+                </div>
+            </div>  
         </>
     )
 }
