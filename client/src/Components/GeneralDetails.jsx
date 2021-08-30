@@ -4,6 +4,7 @@ import serviceImage from '../Assets/serviceImage.jpg'
 
 
 const GeneralDetails = ({thisService}) => {
+    let add = thisService?.location?.address.split(",");
     return (
         <div className="generalCard">
             <div className="heading">Service Details</div>
@@ -28,7 +29,7 @@ const GeneralDetails = ({thisService}) => {
                     <div>
                         <p style={{textAlign: 'right', flex: '0.2'}}>Address/floor</p>
                         <div className="borderName" style={{flex: '0.8'}}>
-                            #2343434
+                            {add[0]}
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@ const GeneralDetails = ({thisService}) => {
                     <div>
                         <p style={{textAlign: 'right', flex: '0.2'}}>Area/street no./sector</p>
                         <div className="borderName" style={{flex: '0.8'}}>
-                            #2343434
+                        {add[add.length-2]}
                         </div>
                     </div>
                 </div>
@@ -44,7 +45,7 @@ const GeneralDetails = ({thisService}) => {
                     <div>
                         <p style={{textAlign: 'right', flex: '0.2'}}>Landmark</p>
                         <div className="borderName" style={{flex: '0.8'}}>
-                            #2343434
+                        {add[add.length-1]}
                         </div>
                     </div>
                 </div>
