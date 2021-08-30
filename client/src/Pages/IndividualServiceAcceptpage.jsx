@@ -7,6 +7,8 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
 
     const [thisService, setThisService] = useState(null);
 
+    const [categories, setCategories] = useState(1);
+
     React.useEffect(() => {
         const fetchData = async () => {
             try {
@@ -66,9 +68,9 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
                     <div className="detailsTabs-4">Comments</div>
                 </div>
                 {
-                    thisService!=null ? 
+                    categories===1 && (thisService!=null ? 
                         <GeneralDetails thisService={thisService?.data()}/> : 
-                        <div>Loading</div>
+                        <div>Loading</div>)
                 }
             </div>  
         </>

@@ -85,7 +85,7 @@ const Servicepage = () => {
                                     {
                                         serviceList.map((res, i) => {
                                             return (
-                                                    <div className="tableRows">
+                                                    <div className="tableRows" key={res.data().location.serviceUid}>
                                                         <div>
                                                             <p className="slnoRow">{res.data().location.servId}</p>
                                                         </div>
@@ -100,13 +100,13 @@ const Servicepage = () => {
                                                             <p className="priceRow">{res.data().location.regDate.toDate().toDateString()}</p>
                                                         </div>
                                                         <div style={{alignItems: 'center'}}>
-                                                            <p className="priceRow">
+                                                            <div className="priceRow">
                                                                 {
                                                                     res.data().location.status==="Rejected" ? 
                                                                         <div className="rejectedButton">Rejected</div> : res.data().location.status==="Accepted" ? 
                                                                             <div className="acceptedButton">Accepted</div> : <div className="pendingButton">Pending</div>
                                                                 }
-                                                            </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                             )
