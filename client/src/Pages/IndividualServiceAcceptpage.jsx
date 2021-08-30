@@ -62,15 +62,33 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
                     </div>
                 </div>
                 <div className="detailsTabs">
-                    <div className="detailsTabs-1">General Details</div>
-                    <div className="detailsTabs-2">Doctor Details</div>
-                    <div className="detailsTabs-3">Service List</div>
-                    <div className="detailsTabs-4">Comments</div>
+                    <div className="detailsTabs-1" onClick={() => setCategories(1)} style={{background: categories===1 ? '#5D5FEF': '#fff'}}>General Details</div>
+                    <div className="detailsTabs-2" onClick={() => setCategories(2)} style={{background: categories===2 ? '#5D5FEF': '#fff'}}>Doctor Details</div>
+                    <div className="detailsTabs-3" onClick={() => setCategories(3)} style={{background: categories===3 ? '#5D5FEF': '#fff'}}>Service List</div>
+                    <div className="detailsTabs-4" onClick={() => setCategories(4)} style={{background: categories===4 ? '#5D5FEF': '#fff'}}>Comments</div>
                 </div>
                 {
                     categories===1 && (thisService!=null ? 
                         <GeneralDetails thisService={thisService?.data()}/> : 
                         <div>Loading</div>)
+                }
+                {
+                    categories===2 && (
+                        // thisService!=null ? 
+                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        <div>2nd tab</div>)
+                }
+                {
+                    categories===3 && (
+                        // thisService!=null ? 
+                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        <div>3rd tab</div>)
+                }
+                {
+                    categories===4 && (
+                        // thisService!=null ? 
+                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        <div>last tab</div>)
                 }
             </div>  
         </>
