@@ -1,5 +1,5 @@
 .accept, .reject {
-    background-color: rgb(119, 119, 179);
+    background-color: #5D5FEF;
     border-radius: 16px;
     cursor: pointer;
     width: 6rem;
@@ -13,4 +13,28 @@
     display: flex;
     justify-content: end;
     align-items: end;
+    cursor: pointer;
+}
+
+.acceptPageSecondarHeading {
+    margin-left: 3rem;
+}
+
+.acceptPageSecondarHeading>p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.detailsTabs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.detailsTabs>div {
+    border: solid 2px #5D5FEF;
+    border-radius: 16px;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 14%;
+    text-align: center;
 }
