@@ -104,7 +104,7 @@ const Servicepage = () => {
                                             return (
                                                     <div className="tableRows">
                                                         <div>
-                                                            <p className="slnoRow">{res.data().location.serviceUid}</p>
+                                                            <p className="slnoRow">{res.data().location.servId}</p>
                                                         </div>
                                                         <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
                                                             <p className="serviceRow">{res.data().location.name}</p>
