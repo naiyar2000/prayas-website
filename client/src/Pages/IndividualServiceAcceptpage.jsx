@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
-// import { NavLink, useLocation } from 'react-router-dom'
+import GeneralDetails from '../Components/GeneralDetails';
 import app from '../firebase';
 import './css/IndividualServiceAcceptpage.css'
 
 const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
-    // let location = useLocation();
 
-    // let uid = location.state.split('&')[0];
-    // let shopNo = location.state.split('&')[1];
-
-    const [thisService, setThisService] = useState({});
+    const [thisService, setThisService] = useState(null);
 
     React.useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await app.firestore().collection("ParlourServices").where("location.serviceUid", "==", uid).where("location.shopNo", "==", shopNo).get();
+                console.log(shopNo)
+                let response = await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get();
+                console.log(response.docs[0].data());
                 setThisService(response.docs[0]);
             } catch (error) {
                 console.log(error);
@@ -24,7 +22,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
     }, []);
 
     const setAccept = async () => {
-        await app.firestore().collection("ParlourServices").where("location.serviceUid", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
+        await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
             snap.docs[0].ref.update({
                 "location.status" : "Accepted"
             });
@@ -32,7 +30,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
     }
 
     const setReject = async () => {
-        await app.firestore().collection("ParlourServices").where("location.serviceUid", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
+        await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
             snap.docs[0].ref.update({
                 "location.status" : "Rejected"
             });
@@ -47,9 +45,9 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
                     <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center',color: 'white'}}>
                         <div>
                             <div style={{display: 'flex', marginLeft: '2.2rem', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
-                                <h1 style={{paddingLeft: '1rem'}}>Form no : #{thisService.serviceUid}</h1>
+                                <h1 style={{paddingLeft: '1rem'}}>Form no : #{thisService?.serviceUid}</h1>
                             </div>
-                            <div>
+                            <div className="acceptPageSecondarHeading">
                                 <p>Service Category : {uid}</p>
                                 <p>Submission Date : </p>
                             </div>
@@ -61,12 +59,17 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
                         </div>
                     </div>
                 </div>
-                <div className="detailsTabls">
-                    <div className="detailsTabls-1">General Details</div>
-                    <div className="detailsTabls-2">Doctor Details</div>
-                    <div className="detailsTabls-3">Service List</div>
-                    <div className="detailsTabls-4">Comments</div>
+                <div className="detailsTabs">
+                    <div className="detailsTabs-1">General Details</div>
+                    <div className="detailsTabs-2">Doctor Details</div>
+                    <div className="detailsTabs-3">Service List</div>
+                    <div className="detailsTabs-4">Comments</div>
                 </div>
+                {
+                    thisService!=null ? 
+                        <GeneralDetails thisService={thisService?.data()}/> : 
+                        <div>Loading</div>
+                }
             </div>  
         </>
     )

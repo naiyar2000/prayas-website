@@ -64,23 +64,6 @@ const Servicepage = () => {
                         <ServiceCards registered="07" newRequest="02" type="Parlour" firstTitle="Registered" secondTitle="New Request"/>
                         <ServiceCards registered="06" newRequest="02" type="Doctor" firstTitle="Registered" secondTitle="New Request"/>
                         </div><br />
-                        {/* <div>
-                            <div className='serviceCode'>
-                                <p>Service Code</p>
-                            </div>
-                            <div className='serviceName'>
-                                <p>Name of the service provider</p>
-                            </div>
-                            <div className='serviceCategory'>
-                                <p>Service Category</p>
-                            </div>
-                            <div className='date'>
-                                <p>Date</p>
-                            </div>
-                            <div className='status'>
-                                <p>Status</p>
-                            </div>
-                        </div> */}
                         <div className="tableHeadings">
                                     <div className='bookingpageCode'>
                                         <p>Service code</p>
@@ -104,11 +87,11 @@ const Servicepage = () => {
                                             return (
                                                     <div className="tableRows">
                                                         <div>
-                                                            <p className="slnoRow">{res.data().location.serviceUid}</p>
+                                                            <p className="slnoRow">{res.data().location.servId}</p>
                                                         </div>
                                                         <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
                                                             <p className="serviceRow">{res.data().location.name}</p>
-                                                            <span className="viewButton" onClick={() => toggle(res.data().location.serviceUid, res.data().location.shopNo)}>View Items</span>
+                                                            <span className="viewButton" onClick={() => toggle(res.data().location.servId, res.data().location.shopNo)}>View Items</span>
                                                         </div>
                                                         <div>
                                                             <p className="priceRow">{res.data().details.serviceType}</p>

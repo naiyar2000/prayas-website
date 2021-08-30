@@ -1,0 +1,63 @@
+.generalCard {
+    width: 95%;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    margin: 1rem auto;
+}
+/* #5D5FEF */
+
+.generalCardInner {
+    padding: 0.01rem 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.generalCard>div>h5 {
+    font-weight: 400;
+    font-size: 16px;
+    color: #5D5FEF;
+}
+
+.nameReg {
+    display: flex;
+    margin-left: 5%;
+    justify-content: space-around;
+}
+
+.nameReg>div {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+}
+
+.nameReg>div>p {
+    font-weight: 400;
+    font-size: 16px;
+    margin-right: 1rem;
+}
+
+.borderName, .borderReg {
+    flex: 0.8;
+    color: #5D5FEF;
+    font-weight: bold;
+    border: solid 1.5px #5D5FEF;
+    border-radius: 8px;
+    text-align: start;
+    padding: 0.3rem 0.6rem;
+}
+
+.adminDetailsAccept {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0rem 4rem;
+}
+
+.aboutClinicAccpet {
+    width: 100%;
+    margin: auto;
+    height: 30vh;
+    border-radius: 8px;
+    border: solid 1.5px #5D5FEF;
+}
