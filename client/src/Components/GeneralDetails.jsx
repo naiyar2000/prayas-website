@@ -14,7 +14,7 @@ const GeneralDetails = ({thisService}) => {
                     <div>
                         <p>Name</p>
                         <div className="borderName">
-                            {thisService?.location?.name}
+                            {thisService?.location?.name??thisService?.location?.clinicName??""}
                         </div>
                     </div>
                     <div>

@@ -3,7 +3,7 @@ import GeneralDetails from '../Components/GeneralDetails';
 import app from '../firebase';
 import './css/IndividualServiceAcceptpage.css'
 
-const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
+const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
 
     const [thisService, setThisService] = useState(null);
 
@@ -13,7 +13,14 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
         const fetchData = async () => {
             try {
                 console.log(shopNo)
-                let response = await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get();
+                let response;
+                if(type=="clinic") {
+                    response = await app.firestore().collection("MedicalServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get();
+                } else if(type=="parlour") {
+                    response = await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get();
+                } else if(type=="salon") {
+                    response = await app.firestore().collection("SalonServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get();
+                }
                 console.log(response.docs[0].data());
                 setThisService(response.docs[0]);
             } catch (error) {
@@ -24,15 +31,17 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle}) => {
     }, []);
 
     const setAccept = async () => {
-        await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
+        let collection = type==="clinic" ? "MedicalServices" : (type==="parlour" ? "ParlourServices": "SalonServices");
+        await app.firestore().collection(`${collection}`).where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
             snap.docs[0].ref.update({
                 "location.status" : "Accepted"
             });
         });
     }
-
+    
     const setReject = async () => {
-        await app.firestore().collection("ParlourServices").where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
+        let collection = type==="clinic" ? "MedicalServices" : (type==="parlour" ? "ParlourServices": "SalonServices");
+        await app.firestore().collection(`${collection}`).where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
             snap.docs[0].ref.update({
                 "location.status" : "Rejected"
             });

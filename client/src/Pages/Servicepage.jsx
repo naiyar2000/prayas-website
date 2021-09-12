@@ -6,15 +6,19 @@ import IndividualServiceAcceptpage from './IndividualServiceAcceptpage'
 
 const Servicepage = () => {
 
-    const [serviceList, setServiceList] = useState([]);
+    const [doctorserviceList, setdoctorServiceList] = useState([]);
+    const [parlourserviceList, setparlourServiceList] = useState([]);
+    const [salonserviceList, setsalonServiceList] = useState([]);
 
     React.useEffect(() => {
         const fetchData = async () => {
             try {
                 const parlourList = await app.firestore().collection("ParlourServices").get();
-                // const salonList = await app.firestore().collection("ParlourServices").get();
-                // const doctorList = await app.firestore().collection("ParlourServices").get();
-                setServiceList(parlourList.docs);
+                const salonList = await app.firestore().collection("SalonServices").get();
+                const doctorList = await app.firestore().collection("MedicalServices").get();
+                setdoctorServiceList(doctorList.docs);
+                setparlourServiceList(parlourList.docs);
+                setsalonServiceList(salonList.docs);
                 console.log(parlourList.docs);
             } catch (error) {
                 console.log(error);
@@ -24,11 +28,13 @@ const Servicepage = () => {
     }, []);
 
     const [toggleAcceptPage, setToggleAccept] = useState(false);
+    const [type, setType] = useState("");
 
     const [uid, setUid] = useState("");
     const [shopNo, setShopNo] = useState("");
 
-    const toggle = (u, s) => {
+    const toggle = (u, s, t) => {
+        setType(t);
         setUid(u);
         setShopNo(s);
         setToggleAccept(true);
@@ -83,21 +89,81 @@ const Servicepage = () => {
                         </div>
                         <div className="wholeTableRow">
                                     {
-                                        serviceList.map((res, i) => {
+                                        doctorserviceList.map((res, i) => {
                                             return (
                                                     <div className="tableRows" key={res.data().location.serviceUid}>
                                                         <div>
-                                                            <p className="slnoRow">{res.data().location.servId}</p>
+                                                            <p className="slnoRow">{res.data().location?.servId??""}</p>
                                                         </div>
                                                         <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
-                                                            <p className="serviceRow">{res.data().location.name}</p>
-                                                            <span className="viewButton" onClick={() => toggle(res.data().location.servId, res.data().location.shopNo)}>View Items</span>
+                                                            <p className="serviceRow">{res.data().location?.name??res.data().location?.clinicName??""}</p>
+                                                            <span className="viewButton" onClick={() => toggle(res.data().location.servId, res.data().location.shopNo, res.data().type)}>View Items</span>
                                                         </div>
                                                         <div>
-                                                            <p className="priceRow">{res.data().details.serviceType}</p>
+                                                            <p className="priceRow">{res.data().type??""}</p>
                                                         </div>
                                                         <div>
-                                                            <p className="priceRow">{res.data().location.regDate.toDate().toDateString()}</p>
+                                                            <p className="priceRow">{res.data().location?.regDate?.toDate()?.toDateString()??""}</p>
+                                                        </div>
+                                                        <div style={{alignItems: 'center'}}>
+                                                            <div className="priceRow">
+                                                                {
+                                                                    res.data().location.status==="Rejected" ? 
+                                                                        <div className="rejectedButton">Rejected</div> : res.data().location.status==="Accepted" ? 
+                                                                            <div className="acceptedButton">Accepted</div> : <div className="pendingButton">Pending</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            )
+                                        })
+                                    }
+                                    {
+                                        parlourserviceList.map((res, i) => {
+                                            return (
+                                                    <div className="tableRows" key={res.data().location.serviceUid}>
+                                                        <div>
+                                                            <p className="slnoRow">{res.data().location?.servId??""}</p>
+                                                        </div>
+                                                        <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
+                                                            <p className="serviceRow">{res.data().location?.name??res.data().location?.clinicName??""}</p>
+                                                            <span className="viewButton" onClick={() => toggle(res.data().location.servId, res.data().location.shopNo, res.data().type)}>View Items</span>
+                                                        </div>
+                                                        <div>
+                                                            <p className="priceRow">{res.data().type??""}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p className="priceRow">{res.data().location?.regDate?.toDate()?.toDateString()??""}</p>
+                                                        </div>
+                                                        <div style={{alignItems: 'center'}}>
+                                                            <div className="priceRow">
+                                                                {
+                                                                    res.data().location.status==="Rejected" ? 
+                                                                        <div className="rejectedButton">Rejected</div> : res.data().location.status==="Accepted" ? 
+                                                                            <div className="acceptedButton">Accepted</div> : <div className="pendingButton">Pending</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            )
+                                        })
+                                    }
+                                    {
+                                        salonserviceList.map((res, i) => {
+                                            return (
+                                                    <div className="tableRows" key={res.data().location.serviceUid}>
+                                                        <div>
+                                                            <p className="slnoRow">{res.data().location?.servId??""}</p>
+                                                        </div>
+                                                        <div style={{display:'flex', flex:2, justifyContent:"space-between"}}>
+                                                            <p className="serviceRow">{res.data().location?.name??res.data().location?.clinicName??""}</p>
+                                                            <span className="viewButton" onClick={() => toggle(res.data().location.servId, res.data().location.shopNo, res.data().type)}>View Items</span>
+                                                        </div>
+                                                        <div>
+                                                            <p className="priceRow">{res.data().type??""}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p className="priceRow">{res.data().location?.regDate?.toDate()?.toDateString()??""}</p>
                                                         </div>
                                                         <div style={{alignItems: 'center'}}>
                                                             <div className="priceRow">
@@ -113,7 +179,7 @@ const Servicepage = () => {
                                         })
                                     }
                                 </div>
-                    </div> : <IndividualServiceAcceptpage uid={uid} shopNo={shopNo} toggle={setToggleAccept}/>
+                    </div> : <IndividualServiceAcceptpage uid={uid} shopNo={shopNo} toggle={setToggleAccept} type={type}/>
             }
                 
         </>
