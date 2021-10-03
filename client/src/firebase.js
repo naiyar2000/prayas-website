@@ -3,14 +3,14 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyCps45uBG2s27X82kvBgAeRyANO8wFxL-Q",
-    authDomain: "freelance-booking-app.firebaseapp.com",
+    apiKey: "AIzaSyC54-751EHJV0DVmIc5FF9satLBfSJth6c",
+    authDomain: "prayas-app-f6416.firebaseapp.com",
     databaseURL: "https://freelance-booking-app-default-rtdb.firebaseio.com",
-    projectId: "freelance-booking-app",
-    storageBucket: "freelance-booking-app.appspot.com",
-    messagingSenderId: "294107082451",
-    appId: "1:294107082451:web:5d59090bb8a20f47432e26",
-    measurementId: "G-YKZQBMQGHQ"
+    projectId: "prayas-app-f6416",
+    storageBucket: "prayas-app-f6416.appspot.com",
+    messagingSenderId: "650640910388",
+    appId: "1:650640910388:web:9a51dd07f0dcbf6f404261",
+    measurementId: "G-TNV65HM3RS"
 });
 
 
