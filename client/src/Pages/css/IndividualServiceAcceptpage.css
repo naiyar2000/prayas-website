@@ -1,5 +1,18 @@
 .accept, .reject {
+    background-color: #0F2735;
+    color: white;
+    border-radius: 16px;
+    border-color: white;
+    cursor: pointer;
+    width: 6rem;
+    height: 1.5rem;
+    display: block;
+    margin: 1rem;
+}
+
+.accept::selection, .reject::selection {
     background-color: #5D5FEF;
+    color: white;
     border-radius: 16px;
     cursor: pointer;
     width: 6rem;

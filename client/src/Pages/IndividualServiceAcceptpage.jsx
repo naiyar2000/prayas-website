@@ -66,7 +66,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
                         <div className="acceptReject">
                             <div className="fa fa-window-close" onClick={() => toggle()}></div>
                             <button onClick={() => setAccept()} className="accept">Accept</button>
-                            <button onClick={() => setReject()} className="reject">Reject</button>
+                            {/* <button onClick={() => setReject()} className="reject">Reject</button> */}
                         </div>
                     </div>
                 </div>
