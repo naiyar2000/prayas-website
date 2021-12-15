@@ -26,7 +26,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
             } catch (error) {
                 console.log(error);
             }
-        }   
+        }
         fetchData();
     }, []);
 
@@ -38,7 +38,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
             });
         });
     }
-    
+
     const setReject = async () => {
         let collection = type==="clinic" ? "MedicalServices" : (type==="parlour" ? "ParlourServices": "SalonServices");
         await app.firestore().collection(`${collection}`).where("location.servId", "==", uid).where("location.shopNo", "==", shopNo).get().then((snap) => {
@@ -59,7 +59,7 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
                                 <h1 style={{paddingLeft: '1rem'}}>Form no : #{thisService?.serviceUid}</h1>
                             </div>
                             <div className="acceptPageSecondarHeading">
-                                <p>Service Category : {uid}</p>
+                                <p>Service Category : {type}</p>
                                 <p>Submission Date : </p>
                             </div>
                         </div>
@@ -77,29 +77,29 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
                     <div className="detailsTabs-4" onClick={() => setCategories(4)} style={{background: categories===4 ? '#5D5FEF': '#fff'}}>Comments</div>
                 </div>
                 {
-                    categories===1 && (thisService!=null ? 
-                        <GeneralDetails thisService={thisService?.data()}/> : 
+                    categories===1 && (thisService!=null ?
+                        <GeneralDetails thisService={thisService?.data()}/> :
                         <div>Loading</div>)
                 }
                 {
                     categories===2 && (
-                        // thisService!=null ? 
-                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        // thisService!=null ?
+                        // <GeneralDetails thisService={thisService?.data()}/> :
                         <div>2nd tab</div>)
                 }
                 {
                     categories===3 && (
-                        // thisService!=null ? 
-                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        // thisService!=null ?
+                        // <GeneralDetails thisService={thisService?.data()}/> :
                         <div>3rd tab</div>)
                 }
                 {
                     categories===4 && (
-                        // thisService!=null ? 
-                        // <GeneralDetails thisService={thisService?.data()}/> : 
+                        // thisService!=null ?
+                        // <GeneralDetails thisService={thisService?.data()}/> :
                         <div>last tab</div>)
                 }
-            </div>  
+            </div>
         </>
     )
 }
