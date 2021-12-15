@@ -5,6 +5,7 @@ import serviceImage from '../Assets/serviceImage.jpg'
 
 const GeneralDetails = ({thisService}) => {
     let add = thisService?.location?.address.split(",");
+
     return (
         <div className="generalCard">
             <div className="heading">Service Details</div>
@@ -57,7 +58,7 @@ const GeneralDetails = ({thisService}) => {
                             <div>
                                 <p style={{textAlign: 'right', flex: '0.2'}}>Name</p>
                                 <div className="borderName" style={{flex: '0.8'}}>
-                                    Naiyar
+                                    {thisService?.adminDetails?.name}
                                 </div>
                             </div>
                         </div>
@@ -65,22 +66,22 @@ const GeneralDetails = ({thisService}) => {
                             <div>
                                 <p style={{textAlign: 'right', flex: '0.2'}}>Phone no.</p>
                                 <div className="borderName" style={{flex: '0.8'}}>
-                                    8793943434
+                                    {thisService?.adminDetails?.number}
                                 </div>
                             </div>
                         </div>
                         <div className="nameReg">
                             <div>
-                                <p style={{textAlign: 'right', flex: '0.2'}}>Email</p>
+                                <p style={{textAlign: 'right', flex: '0.2'}}>Designation</p>
                                 <div className="borderName" style={{flex: '0.8'}}>
-                                    fererew@gmail.com
+                                    {thisService?.adminDetails?.designation}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <h5>About Clinic</h5>
-                <div className="aboutClinicAccpet"></div>
+                <div className="aboutClinicAccpet"> {thisService?.location?.aboutClinic} </div>
             </div>
         </div>
     )
