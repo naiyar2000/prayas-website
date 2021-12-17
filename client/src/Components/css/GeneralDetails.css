@@ -47,6 +47,27 @@
     padding: 0.3rem 0.6rem;
 }
 
+.borderNum{
+    flex: 0.3;
+    color: #5D5FEF;
+    font-weight: bold;
+    border: solid 1.5px #5D5FEF;
+    border-radius: 8px;
+    text-align: start;
+    padding: 0.3rem 0.6rem;
+}
+
+.borderAbout{
+    flex: 0.8;
+    color: #5D5FEF;
+    font-weight: bold;
+    border: solid 1.5px #5D5FEF;
+    border-radius: 8px;
+    text-align: start;
+    padding: 0.3rem 0.6rem;
+    height: 100%;
+}
+
 .adminDetailsAccept {
     display: flex;
     justify-content: space-around;

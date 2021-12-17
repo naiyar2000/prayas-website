@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import GeneralDetails from '../Components/GeneralDetails';
+import DoctorDetails from '../Components/DoctorDetails';
 import app from '../firebase';
 import './css/IndividualServiceAcceptpage.css'
 
@@ -82,9 +83,8 @@ const IndividualServiceAcceptpage = ({uid, shopNo, toggle, type}) => {
                         <div>Loading</div>)
                 }
                 {
-                    categories===2 && (
-                        // thisService!=null ?
-                        // <GeneralDetails thisService={thisService?.data()}/> :
+                    categories===2 && (thisService!=null ?
+                        <DoctorDetails thisService={thisService?.data()}/> :
                         <div>2nd tab</div>)
                 }
                 {
