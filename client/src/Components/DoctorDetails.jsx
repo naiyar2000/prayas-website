@@ -52,6 +52,14 @@ const DoctorDetails = ({thisService}) => {
                                 </div>
                             </div>
                         </div>
+                        <div className="nameReg">
+                            <div>
+                                <p style={{textAlign: 'right', flex: '0.2'}}>About</p>
+                                <div className="borderName" style={{flex: '0.8'}}>
+                                    {thisService?.doctorList[0]?.about}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
