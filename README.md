@@ -1,3 +1,3 @@
 # prayas-website
 
-Admn Website
+Admin Website
